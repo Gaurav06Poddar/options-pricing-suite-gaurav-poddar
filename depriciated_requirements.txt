@@ -1,0 +1,44 @@
+# Core Python
+numpy==1.26.4
+pandas==2.2.2
+scipy==1.13.1
+
+# Data fetching
+yfinance==0.2.40
+polygon-api-client==1.14.6
+tiingo==0.14.0
+requests==2.32.3
+
+# Plotting & Dashboards
+matplotlib==3.9.1
+seaborn==0.13.2
+plotly==5.22.0
+dash==2.17.0
+dash-bootstrap-components==1.6.0
+
+# Quant libraries
+arch==6.3.0
+statsmodels==0.14.2
+py_vollib==1.0.1
+quantlib==1.32
+QuantLib-Python==1.32
+scikit-learn==1.5.1
+
+# Optimization
+cvxpy==1.4.2
+
+# Live market data scheduling
+apscheduler==3.10.4
+
+# Risk metrics
+pyfolio-reloaded==0.9.6
+empyrical-reloaded==0.5.10
+
+# Deployment & Docker helpers
+Flask==3.0.3
+uvicorn==0.30.1
+gunicorn==22.0.0
+
+# Async & Utils
+aiohttp==3.9.5
+tqdm==4.66.4

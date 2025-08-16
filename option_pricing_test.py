@@ -1,3 +1,4 @@
+#option-pricing-models/option_pricing_test.py
 """
 Script testing functionalities of option_pricing package:
 - Testing stock data fetching from Yahoo Finance using pandas-datareader
@@ -11,8 +12,8 @@ from option_pricing import BlackScholesModel, MonteCarloPricing, BinomialTreeMod
 # Fetching the prices from yahoo finance
 data = Ticker.get_historical_data('TSLA')
 print(Ticker.get_columns(data))
-print(Ticker.get_last_price(data, 'Adj Close'))
-Ticker.plot_data(data, 'TSLA', 'Adj Close')
+print(Ticker.get_last_price(data, 'Close'))
+Ticker.plot_data(data, 'TSLA', 'Close')
 
 # Black-Scholes model testing
 BSM = BlackScholesModel(100, 100, 365, 0.1, 0.2)

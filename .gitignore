@@ -7,3 +7,25 @@ venv
 # Files to ignore
 *.pyc
 *.sqlite
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg
+*.egg-info/
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.venv/
+
+# IDE files
+.idea/
+.vscode/
+
+# OS files
+.DS_Store
+
+# Streamlit cache
+.streamlit/

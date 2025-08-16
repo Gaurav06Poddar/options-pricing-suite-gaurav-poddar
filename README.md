@@ -1,116 +1,110 @@
-# Option Pricing Models
+# 📈 Option Pricing Models – Quantitative Finance Toolkit
 
-## Introduction
-This repository contains a simple web app for calculating European option prices using three different methods:
+Developed by **[Gaurav Poddar](https://www.linkedin.com/in/gauravpoddar-gp13/)**  
+📍 Based in New York City | 🎓 Computer Science @ [New York University](https://www.nyu.edu)  
+✉️ Email: gp2610@nyu.edu | gp2610@stern.nyu.edu  
+💻 GitHub: [Gaurav06Poddar](https://github.com/Gaurav06Poddar)
 
-1. Black-Scholes model
-2. Monte Carlo simulation
-3. Binomial model
+---
 
-The app is implemented in Python 3.9 and uses the Streamlit library for visualization.
+## 👋 About Me
 
-## Option Pricing Methods
+Hi, I’m **Gaurav Poddar**, a Computer Science student at NYU with a strong focus on **quantitative finance, AI/ML, and computational modeling**.  
 
-### 1. Black-Scholes Model
-A mathematical model used to calculate the theoretical price of European-style options, based on factors like current stock price, strike price, time to expiration, risk-free rate, and volatility.
+Living in the heart of NYC, I’ve immersed myself in both **engineering and finance** — blending deep technical skills with market intuition. My passion lies in **building robust quant tools** that combine mathematical precision with practical usability.  
 
-### 2. Monte Carlo Simulation
-A probabilistic method that uses random sampling to estimate option prices by simulating multiple possible price paths of the underlying asset.
+This project is my **quant playground** — a full-featured **option pricing lab** designed to showcase not only theory, but also **production-grade code** that recruiters and hiring managers at quant firms/banks would expect from a strong candidate.  
 
-### 3. Binomial Model
-A discrete-time model that represents the evolution of the underlying asset's price as a binomial tree, allowing for the calculation of option prices at different time steps.
+---
 
-## Features
+## 🚀 Project Overview
 
-- Fetches latest stock price data from Yahoo Finance API using pandas-datareader
-- Caches data using requests-cache to avoid duplicate API calls
-- Allows users to input various parameters:
-  - Strike price
-  - Risk-free rate (%)
-  - Sigma (Volatility) (%)
-  - Exercise date
-- Calculates option prices based on user inputs
-- Provides a user-friendly interface for testing different scenarios
+This app is an **interactive Streamlit-based platform** for **option pricing, risk analysis, volatility modeling, and hedging strategies**.  
 
-## Project Structure
+It goes **beyond textbook implementations** — I designed it to be:  
+- **Educational** (demonstrates the math behind models).  
+- **Practical** (pulls **real market data** via Yahoo Finance).  
+- **Research-Ready** (includes advanced models like Heston & Dupire).  
 
-- `demo/`: Contains GIF files demonstrating the Streamlit app
-- `option_pricing/`: Python package containing model implementations
-- `streamlit_app.py`: Main script for the Streamlit web app
-- `Requirements.txt`: List of required Python packages
-- `Dockerfile`: Configuration for running the app in a Docker container
+---
 
-## How to Run the App
+## 🧮 Features
 
-### Using Docker Locally
-The easiest way to run the app is using Docker. Make sure you have Docker installed on your machine before proceeding.
+### ✅ Core Models
+- **Black–Scholes** closed-form pricing + Greeks (Delta, Gamma, Vega, Theta, Rho).
+- **Binomial Tree** pricing (European & American) with **early exercise** support.
+- **Monte Carlo** simulation (European) with:
+  - Variance reduction (antithetic, control variates).
+  - Low-variance Greeks (pathwise / likelihood ratio).
+  - Standard error estimates.
 
-1. Navigate to the repository directory in your terminal.
+### ✅ Advanced Pricing
+- **Longstaff–Schwartz Monte Carlo** for American options.
+- **Asian Options** pricing with control variates.
+- **Carr–Madan FFT pricer** (demo with Black–Scholes CF).
+- **Dupire local volatility surface** estimation.
 
-2. Build the Docker image:
-   ```
-   docker build -t options-pricing:latest .
-   ```
+### ✅ Volatility Lab
+- Realized vs Implied volatility analysis.
+- **Delta-hedged vol-arbitrage backtests**.
+- Execution cost modeling (fixed, linear slippage, quadratic impact).
+- Heatmaps & grid-search for threshold/rebalancing strategies.
 
-3. Verify the image was built successfully:
-   ```
-   docker image ls
-   ```
+### ✅ Market Data & IV Tools
+- **Live data integration** via Yahoo Finance (`yfinance`).
+- Extract **real market IVs** from option chains.
+- Build **synthetic implied volatility surfaces**.
+- Heston model calibration (single expiry).
+- Semi-closed form **Heston pricing**.
 
-4. Run the Docker container:
-   ```
-   docker run -p 8080:8080 options-pricing:latest
-   ```
+### 💹 Risk Dashboard
+- **Portfolio risk metrics**: VaR (Value-at-Risk), CVaR (Expected Shortfall).
+- **Stress testing**: user-defined shocks to underlying price/volatility.
+- **Greeks aggregation**: portfolio-level Delta/Gamma/Vega exposures.
 
-5. Access the app in your web browser at:
-   ```
-   http://0.0.0.0:8080/
-   ```
+### 💹 Paper Trading & Performance Tracking
+- **Paper Trading Engine**:
+   Place simulated trades on **live-market option chains** (via Yahoo Finance).
+   Track positions, P&L, realized/unrealized gains.
+- **Performance Page**:
+   Daily equity curve visualization.
+   Trade logs, win/loss ratio, drawdowns.
+   **Sharpe ratio**, volatility-adjusted returns.
 
-### Using Google Cloud
+---
 
-To deploy the Docker container to Google Cloud Platform (GCP), follow these steps:
+## 🎨 Demo Previews
 
-1. Prerequisites:
-   - Have a Google account
-   - Create a project on Google Cloud Console
-   - Set up billing for your project (be aware of GCP's pricing structure)
-   - Install and set up Google Cloud SDK
+The app includes **interactive 3D surfaces, volatility term structures, and heatmaps** — making it not just functional, but visually compelling for recruiter demos.
 
-2. Verify and set your GCP project:
-   - Check the current project:
-     ```
-     gcloud config get-value project
-     ```
-   - Set a different project if needed:
-     ```
-     gcloud config set project YOUR_PROJECT_NAME
-     ```
+---
 
-3. Deploy the application:
-   - Run the following command (uses the app.yaml file in your project):
-     ```
-     gcloud app deploy
-     ```
-   - Select the nearest server location when prompted
-   - Wait for the deployment process to complete
+## 🛠️ Tech Stack
 
-4. Access your web app:
-   - After deployment, you'll receive a URL for your app
-   - The URL format will be: https://YOUR_PROJECT_NAME.REGION.r.appspot.com/
-   - You can also find this URL in the Google Cloud Console
+- **Python** (NumPy, SciPy, Pandas, Matplotlib, Plotly)  
+- **Streamlit** (for interactive dashboard)  
+- **yfinance** (for real-time market data)  
+- **pytest** (unit testing of models)  
 
-Note: Ensure you understand GCP's pricing before deploying to avoid unexpected charges.
+---
 
-## Streamlit Web App Demonstrations
+## ⚡ Installation & Usage
 
-### Black-Scholes Model
-![black-scholes-demo](media/Black_Scholes_Model.gif)
+Clone the repo:
 
-### Monte Carlo Option Pricing
-![monte-carlo-demo](media/Monte_Carlo_Option_Pricing.gif)
+```bash
+git clone https://github.com/Gaurav06Poddar/option-pricing-suite-gaurav-poddar.git
+cd option-pricing-models
+```
 
-### Binomial Model
-![binomial-tree-demo](media/Binomial_Model.gif)
+Install Dependencies:
 
-By following these instructions, you can easily set up and explore the option pricing models using the Streamlit web app. Feel free to experiment with different parameters and see how they affect the calculated option prices.
+```bash
+pip install -r requirements.txt
+```
+
+Run the app:
+
+```bash
+streamlit run streamlit_app.py
+```

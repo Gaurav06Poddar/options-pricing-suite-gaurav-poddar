@@ -1,18 +1,8 @@
-FROM python:3.9
-
-COPY . /app
-
+FROM python:3.9-slim
 WORKDIR /app
-
-RUN pip install --no-cache-dir -U pip && \
-    pip install --no-cache-dir -r Requirements.txt
-
+COPY . /app
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
+ENV PYTHONUNBUFFERED=1
 EXPOSE 8080
-
 CMD ["streamlit", "run", "--server.port", "8080", "--server.address", "0.0.0.0", "streamlit_app.py"]
-
-# build command
-# docker build -t options-pricing:latest .
-
-# run command
-# docker run -p 8080:8080 options-pricing:latest
